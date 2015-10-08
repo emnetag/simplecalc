@@ -76,23 +76,23 @@ while(true) {
     switch secondInput {
         case "+":
             total = convert(firstInput) + convert(thirdInput)
-            print("Result = \(total)", separator: "")
+            print("Result = \(total)")
         case "-":
             total = convert(firstInput) - convert(thirdInput)
-            print("Result = \(total)", separator: "")
+            print("Result = \(total)")
         case "*":
             total = convert(firstInput) * convert(thirdInput)
-            print("Result = \(total)", separator: "")
+            print("Result = \(total)")
         case "/":
             if convert(thirdInput) == 0 {
                 print("Cannot divide by zero!", separator: "")
                 break
             }
             total = convert(firstInput) / convert(thirdInput)
-            print("Result = \(total)", separator: "")
+            print("Result = \(total)")
         case "%":
             total = convert(firstInput) % convert(thirdInput)
-            print("Result = \(total)", separator: "")
+            print("Result = \(total)")
         default: break
     }
     
