@@ -24,6 +24,8 @@ func convert(incoming: String) -> Double {
 
 var total : Double = 0
 
+var avg : Double = 0
+
 func factorial(n: Int) -> Int {
     if n == 0 {
         return 1
@@ -34,6 +36,7 @@ func factorial(n: Int) -> Int {
     }
     return fact
 }
+
 
 while(true) {
     print("Welcome to the SimpleCalc App")
@@ -46,6 +49,21 @@ while(true) {
         switch multiOps[multiOps.count - 1] {
             case "count":
                 print("Count = \(multiOps.count - 1)")
+            case "avg":
+                var sum : Double = 0
+                for i in 0..<multiOps.count - 1 {
+                    var value = convert(multiOps[i])
+                    sum += value
+                }
+                avg = sum / Double((multiOps.count - 1))
+                print("Average = \(avg)")
+            case "fact":
+                if multiOps.count > 2 {
+                    print("Factorial operation can only accept one number")
+                    break
+                }
+                var fact = factorial(Int(convert(multiOps[0])))
+                print("Factorial = \(fact)")
             default:
                 print("Invalid operation")
         }
