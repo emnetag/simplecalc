@@ -22,7 +22,6 @@ func convert(incoming: String) -> Double {
     return NSNumberFormatter().numberFromString(incoming)!.doubleValue
 }
 
-
 var total : Double = 0
 
 func factorial(n: Int) -> Int {
@@ -40,9 +39,22 @@ while(true) {
     print("Welcome to the SimpleCalc App")
     
     var firstInput = input()
+    
+    let multiOps = firstInput.componentsSeparatedByString(" ")
+    
+    if multiOps.count > 1 {
+        switch multiOps[multiOps.count - 1] {
+            case "count":
+                print("Count = \(multiOps.count - 1)")
+            default:
+                print("Invalid operation")
+        }
+        break
+    }
+
     var secondInput = input()
     var thirdInput = input()
-    
+
     switch secondInput {
         case "+":
             total = convert(firstInput) + convert(thirdInput)
@@ -54,6 +66,10 @@ while(true) {
             total = convert(firstInput) * convert(thirdInput)
             print("Result = \(total)", separator: "")
         case "/":
+            if convert(thirdInput) == 0 {
+                print("Cannot divide by zero!", separator: "")
+                break
+            }
             total = convert(firstInput) / convert(thirdInput)
             print("Result = \(total)", separator: "")
         case "%":
@@ -61,5 +77,6 @@ while(true) {
             print("Result = \(total)", separator: "")
         default: break
     }
+    
     break
 }
