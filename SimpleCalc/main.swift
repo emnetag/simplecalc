@@ -22,7 +22,7 @@ func convert(incoming: String) -> Double {
     return NSNumberFormatter().numberFromString(incoming)!.doubleValue
 }
 
-var total : Double = 0
+var result : Double = 0
 
 var avg : Double = 0
 
@@ -75,26 +75,21 @@ while(true) {
 
     switch secondInput {
         case "+":
-            total = convert(firstInput) + convert(thirdInput)
-            print("Result = \(total)")
+            result = convert(firstInput) + convert(thirdInput)
         case "-":
-            total = convert(firstInput) - convert(thirdInput)
-            print("Result = \(total)")
+            result = convert(firstInput) - convert(thirdInput)
         case "*":
-            total = convert(firstInput) * convert(thirdInput)
-            print("Result = \(total)")
+            result = convert(firstInput) * convert(thirdInput)
         case "/":
             if convert(thirdInput) == 0 {
                 print("Cannot divide by zero!", separator: "")
                 break
             }
-            total = convert(firstInput) / convert(thirdInput)
-            print("Result = \(total)")
+            result = convert(firstInput) / convert(thirdInput)
         case "%":
-            total = convert(firstInput) % convert(thirdInput)
-            print("Result = \(total)")
+            result = convert(firstInput) % convert(thirdInput)
         default: break
     }
-    
+    print("Result = \(result)")
     break
 }
